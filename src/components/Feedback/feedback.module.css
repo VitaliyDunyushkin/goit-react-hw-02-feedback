@@ -1,0 +1,37 @@
+.feedbackTitle{
+    font-size: 3rem;
+    font-weight: 700;
+    margin:2rem 0;
+}
+
+.feedbackButton{
+    padding: 0.5rem 1rem;
+    border: none;
+    margin-left: 3rem;
+    font-size: 2rem;
+    background-color: burlywood;
+    border-radius: 7%;
+    cursor: pointer;
+
+    &:hover,
+    :focus{
+        color: aliceblue; 
+        background-color: brown;
+    }
+
+}
+
+ul{
+    list-style: none;
+}
+
+.statsItem{
+    font-size: 2rem;
+    padding: 0.3rem;
+    
+}
+
+.statsNumber{
+    font-weight: 700;
+    color: blue;
+}
