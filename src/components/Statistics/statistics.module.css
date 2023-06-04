@@ -1,0 +1,14 @@
+ul {
+    list-style: none;
+}
+
+.statsItem {
+    font-size: 2rem;
+    padding: 0.3rem;
+
+}
+
+.statsNumber {
+    font-weight: 700;
+    color: blue;
+}
