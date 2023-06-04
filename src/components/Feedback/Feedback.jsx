@@ -1,3 +1,4 @@
+import React from 'react';
 import css from './feedback.module.css';
 
 export default function Feedback({ doGood, doNeutral, doBad, stats }) {
