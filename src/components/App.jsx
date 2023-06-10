@@ -12,21 +12,14 @@ export class App extends Component {
     statistics: 'Statistics',
   };
 
+  options = Object.keys(this.state);
+
   notificationMessage = 'There is no feedback';
 
-  doGood = event => {
-    // const btnText = event.target.textContent.toLowerCase();
-    // console.log(btnText);
-
-    this.setState(prevState => ({ good: prevState.good + 1 }));
-  };
-
-  doNeutral = event => {
-    this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
-  };
-
-  doBad = event => {
-    this.setState(prevState => ({ bad: prevState.bad + 1 }));
+  handleFeedbackBtns = event => {
+    // console.log(event.target.name);
+    const name = event.target.name;
+    this.setState(prevState => ({ [name]: prevState[name] + 1 }));
   };
 
   countTotalFeedback = ({ good, neutral, bad } = this.state) =>
@@ -45,9 +38,8 @@ export class App extends Component {
       <>
         <Section title={this.title.feedbackOptions}>
           <FeedbackOptions
-            doGood={this.doGood}
-            doNeutral={this.doNeutral}
-            doBad={this.doBad}
+            options={this.options}
+            onClick={this.handleFeedbackBtns}
           />
         </Section>
 

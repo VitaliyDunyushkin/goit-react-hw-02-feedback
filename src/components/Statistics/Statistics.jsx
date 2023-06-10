@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import css from './statistics.module.css';
 
 export default function Statistics({ stats, total, percentOfGood }) {
@@ -27,3 +29,9 @@ export default function Statistics({ stats, total, percentOfGood }) {
     </>
   );
 }
+
+Statistics.propTypes = {
+  stats: PropTypes.objectOf(PropTypes.number),
+  total: PropTypes.number,
+  percentOfGood: PropTypes.number,
+};
