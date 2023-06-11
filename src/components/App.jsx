@@ -7,17 +7,11 @@ import Statistics from './Statistics/Statistics';
 export class App extends Component {
   state = { good: 0, neutral: 0, bad: 0 };
 
-  title = {
-    feedbackOptions: 'Please leave feedback',
-    statistics: 'Statistics',
-  };
-
   options = Object.keys(this.state);
 
   notificationMessage = 'There is no feedback';
 
   handleFeedbackBtns = event => {
-    // console.log(event.target.name);
     const name = event.target.name;
     this.setState(prevState => ({ [name]: prevState[name] + 1 }));
   };
@@ -33,20 +27,23 @@ export class App extends Component {
     const total = this.countTotalFeedback();
     const percentOfGood = this.countPositiveFeedbackPercentage();
     const message = this.notificationMessage;
+    const { good, neutral, bad } = this.state;
 
     return (
       <>
-        <Section title={this.title.feedbackOptions}>
+        <Section title="Please leave feedback">
           <FeedbackOptions
             options={this.options}
             onClick={this.handleFeedbackBtns}
           />
         </Section>
 
-        <Section title={this.title.statistics}>
+        <Section title="Statistics">
           {total !== 0 ? (
             <Statistics
-              stats={this.state}
+              good={good}
+              neutral={neutral}
+              bad={bad}
               total={total}
               percentOfGood={percentOfGood}
             />

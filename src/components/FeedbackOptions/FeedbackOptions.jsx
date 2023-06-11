@@ -5,23 +5,20 @@ import PropTypes from 'prop-types';
 import css from './feedbackOptions.module.css';
 
 export default function FeedbackOptions({ options, onClick }) {
-  const btnNames = options.map(
-    option => option.charAt(0).toUpperCase() + option.slice(1)
-  );
-
-  return btnNames.map(btnName => (
+  return options.map(option => (
     <button
       key={nanoid()}
       type="button"
       className={css.feedbackButton}
-      name={btnName.toLowerCase()}
+      name={option}
       onClick={onClick}
     >
-      {btnName}
+      {option}
     </button>
   ));
 }
 
 FeedbackOptions.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string),
+  onClick: PropTypes.func,
 };

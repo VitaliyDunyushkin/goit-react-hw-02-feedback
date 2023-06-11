@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import css from './section.module.css';
 
 export default function Section({ title, children }) {
@@ -9,3 +11,8 @@ export default function Section({ title, children }) {
     </section>
   );
 }
+
+Section.propTypes = {
+  title: PropTypes.string,
+  children: PropTypes.object,
+};

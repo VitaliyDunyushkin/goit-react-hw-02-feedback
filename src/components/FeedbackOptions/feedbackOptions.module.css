@@ -8,7 +8,10 @@
     padding: 0.5rem 1rem;
     border: none;
     margin-left: 3rem;
+
     font-size: 2rem;
+    text-transform: capitalize;
+
     background-color: burlywood;
     border-radius: 7%;
     cursor: pointer;
