@@ -11,7 +11,7 @@ export default function FeedbackOptions({ options, onClick }) {
       type="button"
       className={css.feedbackButton}
       name={option}
-      onClick={onClick}
+      onClick={() => onClick(option)}
     >
       {option}
     </button>
@@ -19,6 +19,6 @@ export default function FeedbackOptions({ options, onClick }) {
 }
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string),
-  onClick: PropTypes.func,
+  options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  onClick: PropTypes.func.isRequired,
 };

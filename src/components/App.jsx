@@ -11,17 +11,17 @@ export class App extends Component {
 
   notificationMessage = 'There is no feedback';
 
-  handleFeedbackBtns = event => {
-    const name = event.target.name;
-    this.setState(prevState => ({ [name]: prevState[name] + 1 }));
+  handleFeedbackBtns = option => {
+    this.setState(prevState => ({ [option]: prevState[option] + 1 }));
   };
 
-  countTotalFeedback = ({ good, neutral, bad } = this.state) =>
-    good + neutral + bad;
-
-  countPositiveFeedbackPercentage = ({ good, neutral, bad } = this.state) => {
-    return Math.round((good / (good + neutral + bad)) * 100);
+  countTotalFeedback = () => {
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
   };
+
+  countPositiveFeedbackPercentage = () =>
+    Math.round((this.state.good / this.countTotalFeedback()) * 100);
 
   render() {
     const total = this.countTotalFeedback();
@@ -45,7 +45,7 @@ export class App extends Component {
               neutral={neutral}
               bad={bad}
               total={total}
-              percentOfGood={percentOfGood}
+              percentOfGood={percentOfGood || 0}
             />
           ) : (
             <p style={{ fontSize: '2rem', fontWeight: '600' }}>{message}</p>
